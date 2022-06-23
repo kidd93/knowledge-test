@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root {
+    background-color: firebrick;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.header {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+p {
+    font-size: 30px;
+    padding: 50px;
+}
+
+.welcome-page {
+   padding-bottom: 200px;
+}
+
+.footer {
+    background-color: firebrick;
+    color: white;
+    text-align: center;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+.justify-center {
+    justify-content: center;
+}
+.text-center {
+    text-align: center;
+}
+.hidden {
+    display: none;
+}
+.btn {
+    font-size: 40px;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(90deg, black 0%, black 100%);
+    padding: 20px 50px;
+    width: auto;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    border-radius: 4px;
+}
+
+#highscore-btn {
+    background: linear-gradient(90deg, darkgray 0%, darkgray 100%);
+}
