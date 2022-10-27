@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Test</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <main>
+        <div class="highscores"><a href="scoring.html">Highscores</a></div>
+        <div class="timing">Time remaining: <span id="timedTest">0</span></div>
+
+        <section id="intro" class="intro">
+            <h1>
+                Knowledge Test!
+            </h1>
+            <p>
+                This is a timed Knowledge test! Please answer all questions within time! Answer the questions incorrectly and time will be deducted. Best of luck!
+            </p>
+            <button id="begin">
+                Begin Your Test
+            </button>
+        </section>
+        <section class="hide" id="quest">
+            <h2 id="questTitle"></h2>
+            <h3 id="listChoices"></h3>
+        </section>
+        <section class="hide" id="finale">
+                <h2>You have survived this brief Knowledge Test!</h2>
+                <p>Your score is <span id="myScore"></span>.</p>
+        </section>
+    </main>
+    <footer>
+        &copy; 2022 Knowledge Test
+    </footer>
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/Q&A.js"></script>
+</body>
+</html>
