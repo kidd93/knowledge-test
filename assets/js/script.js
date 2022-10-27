@@ -1,88 +1,56 @@
-var beginTest = document.getElementById('begin');
-var list = document.getElementById('listChoices');
-var timedTest = document.getElementById('timedTest');
-var question = document.getElementById('quest');
-var time;
-var remainingTime = 0;
-var testTime = question.length * 15;
+var questions = [
+  {
+      title: 'What is an example of a looping structure in JavaScript?',
+      choices: ['A. for', 'B. while', 'C. do-while', 'D. all of the above'],
+      answer: 'D. all of the above'
+  },
+  {
+      title: 'What is one type of pop up boxes available in JavaScript?',
+      choices: ['A. confirm and', 'B. why hello there', 'C. wrong answer', 'D. correct'],
+      answer: 'A. confirm and'
 
-const begin = () => {
-  var intro = document.getElementById('intro');
+  },
+  {
+      title: 'Which of the following keywords are used to define a variable in JavaScript?',
+      choices: ['A. let', 'B. var', 'C. none of the above', 'D. both A and B'],
+      answer: 'D. both A and B'
+  },
+  {
+      title: 'How do we write a comment in JavaScript?',
+      choices: ['A. //', 'B. #', 'C. $$', 'D. /**/'],
+      answer: 'A. //'
+  },
+];
 
-  intro.setAttribute('class', 'hide');
-  question.removeAttribute('class');
-  time = setInterval(clockTick, 1000);
+const getQuestions = () => {
 
-  timedTest.textContent = testTime;
-  pullQuestions();
+fetch(questions[0]).then(data=>data.json()).then(questionData => {
+
+    let questSection = document.querySelector('.quest');
+
+    questSection.innerhtml = '';
+    
+    
+    questSection.innerhtml +=`
+    <div class="card">
+    <section id="quest">
+        <h2 id="questTitle">${Title}</h2>
+        <button id="listChoices">${Choices}</button>
+    </section>
+    </div>
+    `;
+
+})
+};
+$('.beginBtn').on('click', getQuestions);
+
+let question = eval(localStorage.questions) || []
+
+const UseQuestions = () => {
+    questions.forEach((question, i) => {
+        question.push($('button').eq(i).val())
+    })
+    localStorage.questions = JSON.stringify(question)
 }
 
-const pullQuestions = () => {
-  var question = questions[remainingTime];
-
-  var eachQuestion = document.getElementById('questTitle');
-  eachQuestion.textContent = question.title;
-  list.innerHTML = '';
-
-  question.choices.forEach(function(choice, i) {
-
-    var choices = document.createElement('button');
-    choices.setAttribute('class', 'choice');
-    choices.setAttribute('value', choice);
-
-    choices.textContent = i + 1 + '. ' + choice;
-
-    choices.onclick = questionClick;
-    list.appendChild(choices);
-  });
-}
-
-const clickQuestion = () => {
-  if (this.value !== questions[remainingTime].answer) {
-    testTime -= 15;
-
-    if (testTime < 0) {
-      testTime = 0;
-    }
-    timedTest.textContent = testTime;
-  }
- remainingTime++;
-  if (remainingTime === questions.length) {
-    final();
-  } else {
-    return pullQuestions;
-  }
-}
-
-const final = () => {
-  clearInterval(time);
-
-  var finale = document.getElementById('finale');
-  finale.removeAttribute('class');
-
-  var endScore = document.getElementById('myScore');
-  endScore.textContent = time;
-
-  question.setAttribute('class', 'hide');
-}
-
-const clockery = () => {
-  testTime--;
-  timedTest.textContent = testTime;
-  if (time <= 0) {
-    final();
-  }
-}
-
-const saveScore = () => {
-    var scores = JSON.parse(window.localStorage.getItem('scores')) || [];
-    var scoring = {
-      score: testTime,
-    };
-
-    scores.push(scoring);
-    window.localStorage.setItem('scores', JSON.stringify(scores));
-    window.location.href = 'scoring.html';
-  }
-
-beginTest.onClick = begin;
+console.log();

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <main>
+    <main class="card">
         <div class="highscores"><a href="scoring.html">Highscores</a></div>
         <div class="timing">Time remaining: <span id="timedTest">0</span></div>
 
@@ -19,17 +19,16 @@
             <p>
                 This is a timed Knowledge test! Please answer all questions within time! Answer the questions incorrectly and time will be deducted. Best of luck!
             </p>
-            <button id="begin">
+            <button id="begin" Class="beginBtn onClick=displayQuestions()">
                 Begin Your Test
             </button>
         </section>
-        <section class="hide" id="quest">
+        <section class="card" id="quest">
             <h2 id="questTitle"></h2>
             <h3 id="listChoices"></h3>
         </section>
         <section class="hide" id="finale">
                 <h2>You have survived this brief Knowledge Test!</h2>
-                <p>Your score is <span id="myScore"></span>.</p>
         </section>
     </main>
     <footer>
